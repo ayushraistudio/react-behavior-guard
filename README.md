@@ -26,11 +26,12 @@ import React from 'react';
 import { useBehaviorGuard } from 'react-behavior-guard';
 
 function ExamPortal() {
+  // Initialize with custom strictness levels
   const { riskScore, warnings, analytics } = useBehaviorGuard({
     trackTabSwitch: true,
-    trackCopyPaste: true,
-    trackIdleTime: true,
-    idleTimeoutMs: 30000 // 30 seconds
+    penaltyTabSwitch: 25,    // Custom penalty for tab switching
+    penaltyCopyPaste: 50,    // High penalty for clipboard actions
+    idleTimeoutMs: 15000     // 15 seconds inactivity threshold
   });
 
   return (
@@ -39,8 +40,9 @@ function ExamPortal() {
       
       <div style={{ 
         padding: '10px', 
-        color: riskScore > 50 ? 'white' : 'black',
-        backgroundColor: riskScore > 50 ? 'red' : 'lightgreen' 
+        borderRadius: '8px',
+        color: 'white',
+        backgroundColor: riskScore > 60 ? '#ef4444' : '#10b981' 
       }}>
         Current Risk Score: **{riskScore} / 100**
       </div>
@@ -96,17 +98,6 @@ The hook returns an `analytics` object containing:
 - `copyPasteCount`: Number of clipboard events.
 - `rapidClicks`: Number of rapid click incidents.
 - `idleIncidents`: Number of inactivity timeouts.
-- `mouseLeaveCount`: Number of times the mouse left the window.
-
-## Risk Scoring System
-
-The risk score is cumulative and capped at **100**. 
-
-- **Tab Switch/Blur**: +10 to +15 points per incident.
-- **Copy/Paste**: +20 points (high severity for exams).
-- **Rapid Clicks**: +5 points per burst.
-- **Idle Timeout**: +10 points.
-- **Mouse Out**: +5 to +15 points.
 
 ## Contributing
 
@@ -117,6 +108,9 @@ Contributions are welcome! If you find a bug or have a feature request, please o
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+## Developer
+Developed with ❤️ by **Ayush Rai** ([@ayushraistudio](https://github.com/ayushraistudio))
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
