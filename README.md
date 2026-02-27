@@ -1,5 +1,8 @@
 # react-behavior-guard 🛡️
 
+[![npm version](https://img.shields.io/npm/v/react-behavior-guard.svg?style=flat-square)](https://www.npmjs.com/package/react-behavior-guard)
+[![npm downloads](https://img.shields.io/npm/dm/react-behavior-guard.svg?style=flat-square)](https://www.npmjs.com/package/react-behavior-guard)
+
 A production-ready React library to detect suspicious behavioral patterns in online exams, assessments, or secure web apps and generate a real-time risk score.
 
 
