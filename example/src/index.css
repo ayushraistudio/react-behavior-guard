@@ -1,0 +1,21 @@
+/* example/src/index.css */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f3f4f6;
+  overflow-x: hidden; /* Faltu horizontal scroll band karne ke liye */
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
